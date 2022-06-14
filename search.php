@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['search'])) {
-  $url = 'http://localhost/cluster-api';
+  $url = $_SERVER['HTTP_HOST'].'/cluster-api';
   $search = str_replace(' ', '%20', $_POST['search']);
   $request_url = $url . '/find/' . $search;
 
