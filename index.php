@@ -1,5 +1,5 @@
 <?php
-$url = 'http://localhost/cluster-api';
+$url = $_SERVER['HTTP_HOST'].'/cluster-api';
 $request_url = $url . '/kota';
 
 $curl = curl_init();
