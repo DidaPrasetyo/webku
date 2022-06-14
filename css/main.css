@@ -950,3 +950,18 @@ legend {
   }
 }
 
+.btn-kota {
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px;
+  border: 1px solid white;
+  line-height: 4rem;
+}
+
+.btn-kota:hover {
+  color: white;
+  background-color: transparent;
+}

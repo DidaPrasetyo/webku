@@ -1,3 +1,14 @@
+<?php
+$url = 'http://localhost/cluster-api';
+$request_url = $url . '/kota';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $request_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec($curl);
+$result = json_decode($response);
+curl_close($curl);
+?>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -22,6 +33,14 @@
             <input id="search" name="search" type="text" placeholder="Masukkan NRP" />
           </div>
         </div>
+      </fieldset>
+      <fieldset>
+        <legend style="margin-top: 2rem;">Download Data Perkota</legend>
+        <?php foreach ($result as $key) { ?>
+          <a class="btn-kota" href="<?= $url .'/downloadData/id_kota_'.$key->id ?>"><?= $key->nama ?></a>
+        <?php if (fmod($key->id, 3) == 0) { ?>
+          <br>
+        <?php } } ?>
       </fieldset>
     </form>
   </div>

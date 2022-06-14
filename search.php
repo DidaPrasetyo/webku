@@ -2,23 +2,8 @@
 
 if (isset($_POST['search'])) {
   $url = 'http://localhost/cluster-api';
-  // $search = $_POST['search'];
   $search = str_replace(' ', '%20', $_POST['search']);
   $request_url = $url . '/find/' . $search;
-  // echo $request_url;
-
-  // $curl = curl_init($request_url);
-
-  // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-  // curl_setopt($curl, CURLOPT_HTTPHEADER, [
-  //   'X-RapidAPI-Host: localhost',
-  //   'Content-Type: application/json'
-  // ]);
-
-  // $response = curl_exec($curl);
-  // $result = json_decode($response);
-
-  // curl_close($curl);
 
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_URL, $request_url);
@@ -30,9 +15,6 @@ if (isset($_POST['search'])) {
   header("Location: index.php");
   exit;
 }
-
-
-// echo $response . PHP_EOL;
 
 ?>
 
