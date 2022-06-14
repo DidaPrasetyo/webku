@@ -1,5 +1,6 @@
 <?php
-$url = $_SERVER['HTTP_HOST'].'/cluster-api';
+$host = $_SERVER['HTTP_HOST'];
+$url = $host.'/cluster-api';
 $request_url = $url . '/kota';
 
 $curl = curl_init();
@@ -37,7 +38,7 @@ curl_close($curl);
       <fieldset>
         <legend style="margin-top: 2rem;">Download Data Perkota</legend>
         <?php foreach ($result as $key) { ?>
-          <a class="btn-kota" href="<?= $url .'/downloadData/id_kota_'.$key->id ?>"><?= $key->nama ?></a>
+          <a class="btn-kota" href="<?= '/cluster-api/downloadData/id_kota_'.$key->id ?>"><?= $key->nama ?></a>
         <?php if (fmod($key->id, 3) == 0) { ?>
           <br>
         <?php } } ?>
